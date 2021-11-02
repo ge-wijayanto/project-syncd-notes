@@ -7,21 +7,20 @@
   <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
   <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet">
+  @yield('css')
   <title>@yield('title')</title>
 </head>
 <body>
-  <header>
-    <nav class="dflex">
-      <div class="brand">
-        <img src="{{ asset('img/logo.png') }}" alt="Logo Syncd Notes">
-        <span>Sync'd Notes</span>
-      </div>
-      <div class="auth">
-        <a href="/" class="register">Register</a>
-        <a href="/" class="login">Login</a>
-      </div>
-    </nav>
-  </header>
-  @yield('main')
+  <nav class="dflex">
+    <div class="brand">
+      <img src="{{ asset('img/logo.png') }}" alt="Logo Syncd Notes">
+      <span>Sync'd Notes</span>
+    </div>
+    <div class="auth">
+      <a href="/" class="register">Register</a>
+      <a href="/" class="login">Login</a>
+    </div>
+  </nav>
+  @yield('content')
 </body>
 </html>

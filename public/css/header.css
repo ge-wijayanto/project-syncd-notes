@@ -1,0 +1,110 @@
+.space-between {
+  justify-content: space-between;
+}
+
+.max-vh {
+  height: 100vh;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.banner {
+  padding: 0 2rem 0 5rem;
+  width: 55%;
+}
+
+.banner,
+.hero {
+  height: 450px;
+  transform: translateY(-60px);
+}
+
+.title,
+.desc,
+.signUp {
+  margin-bottom: 1rem;
+  width: 90%;
+  max-width: 690px;
+}
+
+.title h2 {
+  font-size: 60px;
+  color: var(--first-color);
+}
+
+.title span {
+  font-size: 50px;
+  font-weight: bolder;
+  color: var(--third-color);
+  display: block;
+  line-height: 1.2;
+}
+
+.desc {
+  width: 90%;
+}
+
+.desc span {
+  color: var(--second-color);
+  font-size: 1.2rem;
+}
+
+.signUp input,
+.signUp button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+.signUp input {
+  width: calc(100% - 150px);
+  border: 3px solid var(--third-color);
+  border-radius: 10px;
+}
+
+.signUp button {
+  background-color: var(--first-color);
+  color: var(--fifth-color);
+  border-radius: 10px;
+  border: none;
+}
+
+.hero {
+  width: 45%;
+}
+
+.hero img {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+.qoute {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 2rem;
+}
+
+.qoute span {
+  display: block;
+  font-weight: bolder;
+}
+
+.qoute .text {
+  font-size: 3rem;
+  color: var(--first-color);
+  
+}
+
+.qoute .name {
+  text-align: right;
+  color: var(--second-color);
+  font-size: 1.7rem;
+}

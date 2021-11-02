@@ -22,6 +22,9 @@ nav {
   padding: 0.7rem 60px;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .brand img {
@@ -40,11 +43,11 @@ nav {
 .login {
   text-decoration: none;
   color: var(--second-color);
-  padding: 0.5rem 2rem;
+  padding: 0.1rem 1.5rem;
 }
 
 .login {
   background-color: var(--fifth-color);
   border: 2px solid var(--first-color);
-  border-radius: 20px;
+  border-radius: 10px;
 }
