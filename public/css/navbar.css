@@ -18,13 +18,33 @@
   display: flex;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
+.max-vh {
+  height: 100vh;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
 nav {
   padding: 0.7rem 60px;
-  justify-content: space-between;
   align-items: center;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.brand {
+  text-decoration: none;
+  display: block;
 }
 
 .brand img {
@@ -50,4 +70,59 @@ nav {
   background-color: var(--fifth-color);
   border: 2px solid var(--first-color);
   border-radius: 10px;
+}
+
+#drawer {
+  display: none;
+}
+
+@media screen and (max-width: 1090px) {
+  nav {
+    padding: 0.7rem 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .brand span {
+    display: none;
+  }
+
+  #drawer {
+    display: block;
+    font-size: 1.7rem;
+    border: none;
+    background-color: white;
+  }
+
+  .auth {
+    display: none;
+  }
+
+  .auth.open {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    right: 10px;
+    width: 175px;
+    padding: 1rem 1.5rem;
+    background-color: var(--first-color);
+    border-radius: 10px;
+    top: 60px;
+  }
+
+  .register,
+  .login {
+    color: white;
+    background-color: var(--first-color);
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    display: block;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .register:hover,
+  .login:hover {
+    background-color: var(--second-color);
+  }
 }

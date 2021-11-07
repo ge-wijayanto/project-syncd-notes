@@ -11,16 +11,18 @@
   <title>@yield('title')</title>
 </head>
 <body>
-  <nav class="dflex">
-    <div class="brand">
+  <nav class="dflex space-between">
+    <a href="/" class="brand">
       <img src="{{ asset('img/logo.png') }}" alt="Logo Syncd Notes">
       <span>Sync'd Notes</span>
-    </div>
+    </a>
     <div class="auth">
       <a href="/" class="register">Register</a>
-      <a href="/" class="login">Login</a>
+      <a href="{{ route('login') }}" class="login">Login</a>
     </div>
+    <button id="drawer" aria-label="Button untuk membuka navigation bar">☰</button>
   </nav>
   @yield('content')
+  <script src="{{ asset('js/navbar.js') }}"></script>
 </body>
 </html>

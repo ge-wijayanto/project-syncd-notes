@@ -1,0 +1,63 @@
+#loginContainer {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: var(--first-color)
+}
+
+form > label,
+form > input {
+  display: block;
+  width: 100%;
+}
+
+label {
+  color: var(--first-color);
+  margin-bottom: 0.2rem;
+}
+
+form > input {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--third-color);
+  border-radius: 10px;
+}
+
+.remember {
+  margin-left: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.remember input {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+.action {
+  justify-content: flex-end;
+  column-gap: 10px;
+}
+
+.action a,
+.action button {
+  padding: 0.3rem 1.2rem;
+}
+
+.action a {
+  text-decoration: none;
+  color: var(--first-color);
+}
+
+.action button {
+  background-color: var(--first-color);
+  color: var(--fifth-color);
+  border-radius: 10px;
+  border: none;
+}
