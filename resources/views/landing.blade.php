@@ -19,6 +19,7 @@
       </div>
       <div class="signUp">
         <form action="/register" method="post" class="dflex space-between">
+          @csrf
           <input type="text" placeholder="Input your e-mail here...">
           <button type="submit">Join Now</button>
         </form>

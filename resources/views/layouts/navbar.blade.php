@@ -17,7 +17,7 @@
       <span>Sync'd Notes</span>
     </a>
     <div class="auth">
-      <a href="/" class="register">Register</a>
+      <a href="{{ route('register') }}" class="register">Register</a>
       <a href="{{ route('login') }}" class="login">Login</a>
     </div>
     <button id="drawer" aria-label="Button untuk membuka navigation bar">☰</button>

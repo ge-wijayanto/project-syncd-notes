@@ -2,23 +2,33 @@
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/authentication.css') }}">
 @endsection
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('content')
   <main class="dflex align-center max-vh">
     <div id="authContainer">
-      <h2>Login</h2>
-      @if (session('success'))
-      <div class="alert success">
-        <span>{{ session('success') }}</span>
-      </div>
-      @endif
-
-      <form action="/login" method="post">
+      <h2>Register</h2>
+      <form action="/register" method="post">
         @csrf
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Input name here..." value="{{ old('name') }}">
+        @error('name')
+        <div class="alert danger">
+          <span>{{ $message }}</span>
+        </div>
+        @enderror
+
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Input email here..." value="{{ old('email') }}">
         @error('email')
+        <div class="alert danger">
+          <span>{{ $message }}</span>
+        </div>
+        @enderror
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Input username here..." value="{{ old('username') }}">
+        @error('username')
         <div class="alert danger">
           <span>{{ $message }}</span>
         </div>
@@ -32,17 +42,6 @@
         </div>
         @enderror
 
-        <div class="remember">
-          <input type="checkbox" name="remember" id="remember">
-          <label for="remember">Remember me</label>
-        </div>
-
-        @if (session('invalid'))
-        <div class="alert danger">
-          <span>{{ session('invalid') }}</span>
-        </div>
-        @endif
-        
         <div class="action dflex">
           <a href="/">Back</a>
           <button type="submit">Submit</button>

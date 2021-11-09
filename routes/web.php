@@ -13,16 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    return view('landing');
+Route::middleware(['guest'])->group(function() {
+    Route::get('/', function() {
+        return view('landing');
+    });
+    Route::get('/login', 'CustomAuthController@index')->name('login');
+    Route::get('/register', 'CustomAuthController@registration')->name('register');
+    Route::post('/login', 'CustomAuthController@customLogin')->name('login.custom'); 
+    Route::post('/register', 'CustomAuthController@customRegistration')->name('register.custom');
 });
 
-// Route::get('/login', function() {
-//     return view('login');
-// })->name('login');
-
-Route::get('/login', 'CustomAuthController@index')->name('login');
-Route::post('custom-login', 'CustomAuthController@customLogin')->name('login.custom'); 
-Route::get('/register', 'CustomAuthController@registration')->name('register-user');
-Route::post('custom-registration', 'CustomAuthController@customRegistration')->name('register.custom');
-Route::get('signout', 'CustomAuthController@signOut')->name('signout');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::post('/signout', 'CustomAuthController@signOut')->name('signout');
+});
