@@ -12,6 +12,8 @@
   --fourth-color: #C9D8B6;
   --fifth-color: #F1ECC3;
   --sixth-color: #FFF2F2;
+  --seventh-color: #C4C4C4;
+  --eighth-color: #959595;
 }
 
 .dflex {
@@ -59,17 +61,36 @@ nav {
   color: var(--first-color);
 }
 
+.auth a,
+.btn-out {
+  text-decoration: none;
+  padding: 0.1rem 1.5rem;
+  border-radius: 10px;
+}
+
 .register,
 .login {
-  text-decoration: none;
   color: var(--second-color);
-  padding: 0.1rem 1.5rem;
+}
+
+.btn-green {
+  background-color: var(--third-color);
+  color: var(--sixth-color);
+}
+
+.signOut {
+  display: inline-block;
+}
+
+.btn-out {
+  border: none;
+  font-size: 1rem;
+  margin: auto;
 }
 
 .login {
   background-color: var(--fifth-color);
   border: 2px solid var(--first-color);
-  border-radius: 10px;
 }
 
 #drawer {
@@ -82,7 +103,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 620px) {
   .brand span {
     display: none;
   }
@@ -111,7 +132,8 @@ nav {
   }
 
   .register,
-  .login {
+  .login,
+  .btn-green {
     color: white;
     background-color: var(--first-color);
     border: none;
@@ -119,6 +141,10 @@ nav {
     text-align: center;
     display: block;
     padding: 0.7rem 1.5rem;
+  }
+
+  .btn-out {
+    padding: 0.1rem 1rem
   }
 
   .register:hover,

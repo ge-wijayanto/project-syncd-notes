@@ -31,7 +31,7 @@ class CustomAuthController extends Controller
             return redirect()->route('dashboard');
         }
 
-        return redirect()->route('login')->with('invalid', 'Your email and password don\'t match');
+        return redirect()->route('login')->with('invalid', 'Your email and password don\'t match')->withInput();
     }
 
     public function customRegistration(Request $request) {  
