@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Expr\FuncCall;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,13 @@ Route::middleware(['auth'])->group(function() {
         return view('dashboard');
     })->name('dashboard');
     Route::post('/signout', 'CustomAuthController@signOut')->name('signout');
+    Route::get('/profile', function() {
+        return view('profile');
+    });
+    Route::get('/profile/edit', function() {
+        return view('edit.profile');
+    });
+    Route::get('/password/edit', function() {
+        return view('edit.password');
+    });
 });

@@ -1,0 +1,98 @@
+nav {
+  position: relative !important;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  margin: 2rem auto 0 auto;
+}
+
+.container h2 {
+  text-align: center;
+  color: var(--first-color);
+}
+
+.container img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 1.2rem auto;
+  border-radius: 50%;
+}
+
+.profile > div {
+  margin-bottom: 1.2rem;
+}
+
+.profile > div > span {
+  display: block;
+  overflow: hidden;
+}
+
+.profile .key {
+  color: var(--first-color);
+  margin-bottom: 0.1rem;
+}
+
+.profile .value {
+  color: var(--second-color);
+  padding: 0.1rem 0.3rem;
+  border: 3px solid var(--third-color);
+  border-radius: 7px;
+}
+
+.action i {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  vertical-align: center;
+}
+
+.action .value {
+  width: calc(100% - 31px);
+  display: inline-block;
+}
+
+
+.edit-password {
+  margin-top: 2rem;
+}
+
+.edit-password label,
+.edit-password input {
+  display: block;
+  width: 100%;
+}
+
+.edit-password label {
+  color: var(--first-color);
+}
+
+.edit-password input {
+  margin-bottom: 1.5rem;
+  padding: 0.3rem 1rem;
+  border: 2px solid var(--third-color);
+  border-radius: 7px;
+}
+
+.edit-action {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.edit-action a,
+.edit-action button {
+  padding: 0.3rem 1.2rem;
+}
+
+.edit-action a {
+  text-decoration: none;
+  color: var(--first-color);
+}
+
+.edit-action button {
+  background-color: var(--first-color);
+  border-radius: 10px;
+  color: var(--fifth-color);
+  border: none;
+}
