@@ -9,7 +9,8 @@
     <div class="action-project dflex">
       <div class="create">
         <form action="/dashboard/create" method="post">
-          <input type="text" id="create" name="create" placeholder="Your new project's name...">
+          @csrf
+          <input type="text" id="create" name="name" placeholder="Your new project's name...">
           <button type="submit" class="btn-create">Create</button>
         </form>
       </div>
@@ -22,65 +23,19 @@
     </div>
 
     <div class="projects dflex">
+    @foreach($projects as $p)
       <div class="project">
-        <a href="/dashboard/project/1">
+        <a href="project/view/{{$p->id}}">
           <div class="header dflex">
             <span>UP</span>
           </div>
           <div class="info">
-            <span class="name-project">Unknown Project</span>
-            <span class="created-by">Created by Anonymous</span>
+            <span class="name-project">{{$p->name}}</span>
+            <span class="created-by">Created by {{$p->user->name}}</span>
           </div>
         </a>
       </div>
-
-      <div class="project">
-        <a href="/dashboard/project/1">
-          <div class="header dflex">
-            <span>UP</span>
-          </div>
-          <div class="info">
-            <span class="name-project">Unknown Project</span>
-            <span class="created-by">Created by Anonymous</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/dashboard/project/1">
-          <div class="header dflex">
-            <span>UP</span>
-          </div>
-          <div class="info">
-            <span class="name-project">Unknown Project</span>
-            <span class="created-by">Created by Anonymous</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/dashboard/project/1">
-          <div class="header dflex">
-            <span>UP</span>
-          </div>
-          <div class="info">
-            <span class="name-project">Unknown Project</span>
-            <span class="created-by">Created by Anonymous</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="project">
-        <a href="/dashboard/project/1">
-          <div class="header dflex">
-            <span>UP</span>
-          </div>
-          <div class="info">
-            <span class="name-project">Unknown Project</span>
-            <span class="created-by">Created by Anonymous</span>
-          </div>
-        </a>
-      </div>
+      @endforeach
     </div>
   </main>
 @endsection

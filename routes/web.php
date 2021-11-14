@@ -25,9 +25,7 @@ Route::middleware(['guest'])->group(function() {
 });
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/dashboard', function() {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', 'CustomAuthController@dashboard')->name('dashboard');
     Route::post('/signout', 'CustomAuthController@signOut')->name('signout');
     Route::get('/profile', function() {
         return view('profile');
@@ -38,4 +36,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/password/edit', function() {
         return view('edit.password');
     });
+    Route::post('/dashboard/create', 'ProjectController@store');
+    Route::get('/project/view/{id}', 'ProjectController@view');
+    Route::get('/project/delete/{id}', 'ProjectController@delete');
 });

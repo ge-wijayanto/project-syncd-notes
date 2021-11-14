@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CustomAuthController extends Controller
 {
@@ -26,6 +28,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         $remember = $request->remember;
+        $projects = Project::all();
         if (Auth::attempt($credentials, $remember)) {
             Auth::logoutOtherDevices($request->password);
             return redirect()->route('dashboard');
@@ -59,7 +62,8 @@ class CustomAuthController extends Controller
     
     public function dashboard() {
         if(Auth::check()){
-            return view('dashboard');
+            $projects = Project::all();
+            return view('dashboard',['projects' => $projects]);
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
