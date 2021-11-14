@@ -1,3 +1,9 @@
+html {
+  background-image:url('/img/abstract_1.png');
+  background-repeat: no-repeat;
+  background-size: 1550px 755px;
+}
+
 #authContainer {
   width: 90%;
   max-width: 500px;

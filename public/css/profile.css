@@ -1,3 +1,9 @@
+html {
+  background-image:url('/img/abstract_2.png');
+  background-repeat: no-repeat;
+  background-size: 1550px 755px;
+}
+
 nav {
   position: relative !important;
 }

@@ -5,7 +5,7 @@
 @section('title', 'Sync\'d Notes')
 
 @section('content')
-  <header class="dflex max-vh align-center space-between">
+<header class="dflex max-vh align-center space-between">
     <div class="banner dflex flex-column space-between">
       <div class="title">
         <h2>Manage your Project.</h2>

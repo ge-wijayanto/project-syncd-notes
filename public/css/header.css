@@ -1,3 +1,9 @@
+html {
+  background-image:url('/img/Landing_Page.png');
+  background-repeat: no-repeat;
+  background-size: 1550px 755px;
+}
+
 .banner {
   padding: 0 2rem 0 5rem;
   width: 55%;
