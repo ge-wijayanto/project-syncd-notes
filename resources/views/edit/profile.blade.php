@@ -8,7 +8,9 @@
   <main>
     <div class="container">
       <h2>Edit Profile</h2>
-      <form action="/profile/edit" method="post" class="edit-password" value="Lorem ipsum">
+      <form action="{{ route('profile.update') }}" method="post" class="edit-password" value="Lorem ipsum">
+        @method('patch')
+        @csrf
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Input your name here...">
 

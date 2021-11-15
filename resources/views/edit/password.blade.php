@@ -8,7 +8,9 @@
   <main>
     <div class="container">
       <h2>Change Password</h2>
-      <form action="/password/edit" method="post" class="edit-password">
+      <form action="{{ route('password.update') }}" method="post" class="edit-password">
+        @method('patch')
+        @csrf
         <label for="old-password">Old Password</label>
         <input type="password" id="old-password" name="old-password" placeholder="Input your old password here...">
         <label for="new-password">New Password</label>

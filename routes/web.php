@@ -36,6 +36,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/password/edit', function() {
         return view('edit.password');
     });
+    Route::patch('/profile/edit', 'CustomAuthController@updateProfile')
+        ->name('profile.update');
+    Route::patch('/profile/edit', 'CustomAuthController@updatePassword')
+        ->name('password.update'); //belom jalan
     Route::post('/dashboard/create', 'ProjectController@store');
     Route::get('/project/view/{id}', 'ProjectController@view');
     Route::get('/project/delete/{id}', 'ProjectController@delete');

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Support\Renderable;
 
 class CustomAuthController extends Controller
 {
@@ -76,4 +77,20 @@ class CustomAuthController extends Controller
 
         return redirect('login');
     }
+
+    public function updateProfile(Request $request) {
+        $request->user()->update(
+            $request->all()
+        );
+
+        return view('profile');
+    }
+
+    public function updatePassword(Request $request) {
+        $request->user()->update(
+            $request->all()
+        );
+
+        return view('profile');
+    } //belom jalan
 }
