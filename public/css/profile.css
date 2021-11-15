@@ -1,7 +1,8 @@
-html {
+body {
   background-image:url('/img/abstract_2.png');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  background-position: center;
 }
 
 nav {
@@ -101,4 +102,21 @@ nav {
   border-radius: 10px;
   color: var(--fifth-color);
   border: none;
+}
+
+.alert {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.alert.danger {
+  background-color: rgb(253, 163, 147);
+  color: rgb(199, 9, 9);
+}
+
+.alert.success {
+  background-color: rgb(165, 251, 175);
+  color: rgb(14, 145, 7);
 }

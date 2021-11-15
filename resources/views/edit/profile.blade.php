@@ -14,6 +14,11 @@
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Input your name here...">
 
+        @error('name')
+        <div class="alert danger">
+          {{ $message }}
+        </div>
+        @enderror
         <div class="edit-action dflex">
           <a href="/profile">Back</a>
           <button type="submit">Update</button>

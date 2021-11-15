@@ -27,7 +27,14 @@
       <div class="project">
         <a href="project/view/{{$p->id}}">
           <div class="header dflex">
-            <span>UP</span>
+            <span>@php
+                $split = explode(" ", $p->name);
+                $msg = "";
+                foreach ($split as $s) {
+                  $msg .= $s[0];
+                }
+                echo $msg;
+            @endphp</span>
           </div>
           <div class="info">
             <span class="name-project">{{$p->name}}</span>
@@ -35,7 +42,7 @@
           </div>
         </a>
       </div>
-      @endforeach
+    @endforeach
     </div>
   </main>
 @endsection

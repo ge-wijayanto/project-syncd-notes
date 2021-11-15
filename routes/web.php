@@ -27,19 +27,11 @@ Route::middleware(['guest'])->group(function() {
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', 'CustomAuthController@dashboard')->name('dashboard');
     Route::post('/signout', 'CustomAuthController@signOut')->name('signout');
-    Route::get('/profile', function() {
-        return view('profile');
-    });
-    Route::get('/profile/edit', function() {
-        return view('edit.profile');
-    });
-    Route::get('/password/edit', function() {
-        return view('edit.password');
-    });
-    Route::patch('/profile/edit', 'CustomAuthController@updateProfile')
-        ->name('profile.update');
-    Route::patch('/profile/edit', 'CustomAuthController@updatePassword')
-        ->name('password.update'); //belom jalan
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/profile/edit', 'ProfileController@showEditProfile')->name('profile.edit');
+    Route::get('/password/edit', 'ProfileController@showEditPassword')->name('password.edit');
+    Route::patch('/profile/edit', 'ProfileController@updateProfile')->name('profile.update');
+    Route::patch('/password/edit', 'ProfileController@updatePassword')->name('password.update');
     Route::post('/dashboard/create', 'ProjectController@store');
     Route::get('/project/view/{id}', 'ProjectController@view');
     Route::get('/project/delete/{id}', 'ProjectController@delete');
