@@ -5,7 +5,7 @@
 @section('title', 'Login')
 
 @section('content')
-  <main class="dflex align-center max-vh">
+  <main class="dflex">
     <div id="authContainer">
       <h2>Login</h2>
       @if (session('success'))

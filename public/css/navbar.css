@@ -14,6 +14,7 @@
   --sixth-color: #FFF2F2;
   --seventh-color: #C4C4C4;
   --eighth-color: #959595;
+  --nineth-color: #BA362D;
 }
 
 .dflex {
@@ -24,10 +25,6 @@
   justify-content: space-between;
 }
 
-.max-vh {
-  height: 100vh;
-}
-
 .align-center {
   align-items: center;
 }
@@ -36,10 +33,14 @@
   flex-direction: column;
 }
 
+body {
+  min-height: 100vh;
+}
+
 nav {
   padding: 0.7rem 60px;
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
 }

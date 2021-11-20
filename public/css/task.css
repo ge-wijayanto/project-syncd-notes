@@ -1,0 +1,65 @@
+main {
+  justify-content: center;
+}
+
+.container {
+  margin-top: 50px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label, 
+input, 
+textarea {
+  display: block;
+  width: 100%;
+}
+
+input, 
+textarea {
+  padding: 0.4rem 0.7rem;
+  color: var(--second-color);
+  border: 2px solid var(--third-color);
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.martop {
+  margin-top: 2rem;
+}
+
+.action {
+  justify-content: flex-end;
+}
+
+.action a {
+  text-decoration: none;
+  color: var(--first-color);
+  padding: 0.4rem 1.2rem;
+}
+
+.btn-create,
+.btn-edit {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: var(--first-color);
+  color: var(--fifth-color) !important;
+  border-radius: 10px;
+  border: none;
+}

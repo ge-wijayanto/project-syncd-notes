@@ -12,21 +12,20 @@ class ProjectController extends Controller
     public function view($id)
     {
         $projects = Project::find($id);
-        return view('proyek.detail_proyek', ['projects' => $projects]);
+        return view('proyek.detail', ['projects' => $projects]);
     }
 
     public function store(Request $request)
     {
-	$this->validate($request,[
-        'name' => 'required'
-    ]);
-    Project::create([
-        'name' => $request->name,
-        'code' => uniqid(),
-        'user_id' => Auth::user()->id
-    ]);
-	return redirect('dashboard');
- 
+        $this->validate($request,[
+            'name' => 'required'
+        ]);
+        Project::create([
+            'name' => $request->name,
+            'code' => uniqid(),
+            'user_id' => Auth::user()->id
+        ]);
+        return redirect('dashboard');
     }
 
     public function delete($id)

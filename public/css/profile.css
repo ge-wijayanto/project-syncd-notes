@@ -5,10 +5,6 @@ body {
   background-position: center;
 }
 
-nav {
-  position: relative !important;
-}
-
 .container {
   width: 90%;
   max-width: 400px;

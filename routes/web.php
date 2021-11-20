@@ -35,4 +35,9 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/dashboard/create', 'ProjectController@store');
     Route::get('/project/view/{id}', 'ProjectController@view');
     Route::get('/project/delete/{id}', 'ProjectController@delete');
+
+    // Task
+    Route::get('/project/view/{id}/create', 'TaskController@create');
+    Route::get('/project/view/{id}/detail/{idTask}', 'TaskController@detail');
+    Route::get('/project/view/{id}/detail/{idTask}/edit', 'TaskController@edit');
 });
