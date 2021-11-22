@@ -9,11 +9,17 @@
 @section('content')
     <main>
         <div class="navigation dflex">
-            <span>{{$projects->name}} : {{$projects->code}}</span>
+            <span>{{$projects->name}}  
+            @if($checkparticipant !== null)
+            : {{$projects->code}}</span>
+            @endif
             <div class="menu-action">
+                @if($checkparticipant !== null)
+                <a href="/project/view/{{$projects->id}}/leave">Leave Project</a>
                 <a href="/project/view/{{$projects->id}}/create">Create Task</a>
                 <a href="#">Activity Log</a>
                 <a href="/project/delete/{{$projects->id}}">Terminate Project</a>
+                @endif
             </div>
         </div>
         <div class="container">

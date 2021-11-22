@@ -16,7 +16,8 @@
       </div>
       <div class="join">
         <form action="/dashboard/join" method="post">
-          <input type="text" id="join" name="join" placeholder="Project's code...">
+          @csrf
+          <input type="text" id="join" name="code" placeholder="Project's code...">
           <button type="submit" class="btn-join">Join</button>
         </form>
       </div>

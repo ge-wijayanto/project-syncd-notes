@@ -33,11 +33,13 @@ Route::middleware(['auth'])->group(function() {
     Route::patch('/profile/edit', 'ProfileController@updateProfile')->name('profile.update');
     Route::patch('/password/edit', 'ProfileController@updatePassword')->name('password.update');
     Route::post('/dashboard/create', 'ProjectController@store');
+    Route::post('/dashboard/join', 'ParticipantController@store');
     Route::get('/project/view/{id}', 'ProjectController@view');
     Route::get('/project/delete/{id}', 'ProjectController@delete');
 
     // Task
     Route::get('/project/view/{id}/create', 'TaskController@create');
+    Route::get('/project/view/{id}/leave', 'ParticipantController@delete');
     Route::get('/project/view/{id}/detail/{idTask}', 'TaskController@detail');
     Route::get('/project/view/{id}/detail/{idTask}/edit', 'TaskController@edit');
 });

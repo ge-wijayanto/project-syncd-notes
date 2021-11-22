@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
+use App\Models\Participant;
 
 class ProjectController extends Controller
 {
     public function view($id)
     {
         $projects = Project::find($id);
-        return view('proyek.detail', ['projects' => $projects]);
+        $userid = Auth::id();
+        $checkparticipant = Participant::where('user_id', $userid)->where('project_id', $projects->id)->first();
+        return view('proyek.detail', ['projects' => $projects, 'checkparticipant' => $checkparticipant]);
     }
 
     public function store(Request $request)
