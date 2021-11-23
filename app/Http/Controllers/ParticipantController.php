@@ -17,7 +17,18 @@ class ParticipantController extends Controller
         ]);
         $code = $request->code;
         $projects = Project::where('code', $code)->first();
+        if ($projects === null) {
+            return redirect()->back()->withErrors([
+                'failed' => 'The project\'s code is invalid!'
+            ]);
+        }
+
         $userid = Auth::id();
+        if ($projects->user_id === $userid) {
+            return redirect()->back()->withErrors([
+                'failed' => 'You cannot join the projects because your are the owner`s that project!'
+            ]);
+        }
         Participant::create([
             'user_id' => $userid,
             'project_id' => $projects->id

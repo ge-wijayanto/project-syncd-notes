@@ -79,6 +79,11 @@
   color: var(--eighth-color);
 }
 
+.alert {
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 580px) {
   .action-project {
     flex-direction: column;

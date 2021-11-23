@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Participant;
 use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
@@ -61,8 +62,10 @@ class CustomAuthController extends Controller
     
     public function dashboard() {
         if(Auth::check()){
-            $projects = Project::all();
-            return view('dashboard',['projects' => $projects]);
+            $projects = Project::where('user_id', Auth::id())->get();
+            return view('dashboard',[
+                'projects' => $projects,
+            ]);
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

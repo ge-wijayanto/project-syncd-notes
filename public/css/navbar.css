@@ -98,6 +98,16 @@ nav {
   display: none;
 }
 
+.alert.danger {
+  background-color: rgb(253, 163, 147);
+  color: rgb(199, 9, 9);
+}
+
+.alert.success {
+  background-color: rgb(165, 251, 175);
+  color: rgb(14, 145, 7);
+}
+
 @media screen and (max-width: 1090px) {
   nav {
     padding: 0.7rem 1rem;

@@ -28,13 +28,13 @@ class ProjectController extends Controller
             'code' => uniqid(),
             'user_id' => Auth::user()->id
         ]);
-        return redirect('dashboard');
+        return redirect('dashboard')->with('success', 'The project has been created!');
     }
 
     public function delete($id)
     {
         $projects = Project::find($id);
         $projects->delete();
-        return redirect('dashboard');
+        return redirect('dashboard')->with('success', 'The project has been terminated!');
     }
 }

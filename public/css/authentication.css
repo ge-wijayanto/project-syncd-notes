@@ -45,16 +45,6 @@ form > input {
   margin-bottom: 1rem;
 }
 
-.alert.danger {
-  background-color: rgb(253, 163, 147);
-  color: rgb(199, 9, 9);
-}
-
-.alert.success {
-  background-color: rgb(165, 251, 175);
-  color: rgb(14, 145, 7);
-}
-
 .remember {
   margin-left: 0.3rem;
   margin-bottom: 2rem;

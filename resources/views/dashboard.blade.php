@@ -22,7 +22,26 @@
         </form>
       </div>
     </div>
-
+    @if (session('success'))
+    <div class="alert success">
+      {{ session('success') }}
+    </div>
+    @endif
+    @error('failed')
+    <div class="alert danger">
+      {{ $message }}
+    </div>
+    @enderror
+    @error('code')
+    <div class="alert danger">
+      {{ $message }}
+    </div>
+    @enderror
+    @error('name')
+    <div class="alert danger">
+      {{ $message }}
+    </div>
+    @enderror
     <div class="projects dflex">
     @foreach($projects as $p)
       <div class="project">

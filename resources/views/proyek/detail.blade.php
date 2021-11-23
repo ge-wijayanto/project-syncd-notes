@@ -10,15 +10,20 @@
     <main>
         <div class="navigation dflex">
             <span>{{$projects->name}}  
-            @if($checkparticipant !== null)
-            : {{$projects->code}}</span>
+            @if (Auth::id() === $projects->user->id)
+            : {{$projects->code}}
             @endif
+            </span>
             <div class="menu-action">
-                @if($checkparticipant !== null)
-                <a href="/project/view/{{$projects->id}}/leave">Leave Project</a>
-                <a href="/project/view/{{$projects->id}}/create">Create Task</a>
-                <a href="#">Activity Log</a>
-                <a href="/project/delete/{{$projects->id}}">Terminate Project</a>
+                @if ($checkparticipant !== null || Auth::id() === $projects->user->id) 
+                    <a href="/project/view/{{$projects->id}}/create">Create Task</a>
+                    <a href="#">Activity Log</a>
+                    @if (Auth::id() === $projects->user->id )
+                        <a href="/project/delete/{{$projects->id}}">Terminate Project</a>
+                    @endif
+                    @if ($checkparticipant !== null) 
+                    <a href="/project/view/{{$projects->id}}/leave">Leave Project</a>
+                    @endif
                 @endif
             </div>
         </div>
