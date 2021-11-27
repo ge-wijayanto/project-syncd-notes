@@ -63,9 +63,18 @@ class CustomAuthController extends Controller
     public function dashboard() {
         if(Auth::check()){
             $projects = Project::where('user_id', Auth::id())->get();
+            $participant = Participant::where('user_id', Auth::id())->get();
+            
+            
+            foreach ($participant as $p) {
+                $projects->push($p->project);
+            }
+
             return view('dashboard',[
                 'projects' => $projects,
             ]);
+
+
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

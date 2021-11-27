@@ -58,7 +58,9 @@
           </div>
           <div class="info">
             <span class="name-project">{{$p->name}}</span>
-            <span class="created-by">Created by {{$p->user->name}}</span>
+            <span class="created-by">Created by 
+              {{ $p->user->name === Auth::user()->name ? 'You' : $p->user->name }}
+            </span>
           </div>
         </a>
       </div>

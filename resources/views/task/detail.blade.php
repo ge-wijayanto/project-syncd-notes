@@ -7,34 +7,42 @@
 @section('content')
   <main class="dflex">
     <div class="container">
-      <h2>Dummy Task</h2>
+      <h2>Detail Task</h2>
+      @if (session('success'))
+      <div class="alert success">
+        {{ session('success') }}
+      </div>
+      @endif
       <div class="form-group">
-        <label class="bold">Title</label>
+        <label class="bold">Name</label>
         <div class="value">
-          Dummy Title
+          {{ $task->name }}
         </div>
       </div>
       <div class="form-group">
         <label class="bold">Description</label>
         <div class="value">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat officia aliquam unde optio voluptate dolore in cupiditate expedita sit, corporis perferendis minima repudiandae? Earum vitae eveniet amet rem quibusdam placeat.
+          {!! nl2br($task->description) !!}
         </div>
       </div>
       <div class="form-group">
         <label class="bold">Start Date</label>
         <div class="value">
-          2021-24-24
+          {{ $task->start_date }}
         </div>
       </div>
       <div class="form-group">
         <label class="bold">End Date</label>
         <div class="value">
-          2021-99-99
+          {{ $task->end_date }}
         </div>
       </div>
       <div class="action dflex martop">
         <a href="/project/view/{{ $id }}">Back</a>
-        <a href="/project/view/{{ $id }}/detail/{{ $idTask }}/edit" class="btn-edit">Edit</a>
+
+        @if ($owned)
+        <a href="/project/view/{{ $id }}/edit/{{ $idTask }}" class="btn-edit">Edit</a>
+        @endif
       </div>
     </div>
   </main>

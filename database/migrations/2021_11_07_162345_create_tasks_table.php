@@ -18,6 +18,8 @@ class CreateTasksTable extends Migration
             $table->string('name',20);
             $table->string('description',200);
             $table->boolean('status')->default(false);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
             $table->timestamps();

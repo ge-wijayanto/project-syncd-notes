@@ -15,6 +15,7 @@ class ParticipantController extends Controller
         $this->validate($request,[
             'code' => 'required'
         ]);
+
         $code = $request->code;
         $projects = Project::where('code', $code)->first();
         if ($projects === null) {
@@ -26,9 +27,19 @@ class ParticipantController extends Controller
         $userid = Auth::id();
         if ($projects->user_id === $userid) {
             return redirect()->back()->withErrors([
-                'failed' => 'You cannot join the projects because your are the owner`s that project!'
+                'failed' => 'You cannot join the projects because your are the owner`s project!'
             ]);
         }
+
+        $check = Participant::where('project_id', $projects->id)
+                    ->where('user_id', $userid);
+
+        if ($check->first() !== null) {
+            return redirect()->back()->withErrors([
+                'failed' => 'You have joined the project'
+            ]);
+        }
+
         Participant::create([
             'user_id' => $userid,
             'project_id' => $projects->id

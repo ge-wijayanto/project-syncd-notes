@@ -11,7 +11,12 @@
   font-weight: bolder;
 }
 
-.menu-action a {
+form {
+  display: inline;
+}
+
+.menu-action a,
+.menu-action button {
   padding: 0.3rem 1.2rem;
   background-color: var(--fourth-color);
   display: inline-block;
@@ -19,6 +24,11 @@
   text-decoration: none;
   margin-left: 0.5rem;
   border-radius: 10px;
+}
+
+.menu-action button {
+  border: none;
+  font-size: 1rem;
 }
 
 .container {
@@ -59,25 +69,27 @@
   font-size: 0.9rem;
 }
 
-
-
-.card a {
+.card a,
+.card button {
   padding: 0.3rem 1rem;
   text-decoration: none;
   display: inline-block;
   font-weight: bold;
   border-radius: 10px;
   margin-top: 5px;
+  font-size: 1rem;
 }
 
 .btn-default {
   background-color: var(--fifth-color);
   color: black;
+  border: none;
 }
 
 .btn-danger {
   background-color: var(--nineth-color);
   color: white;
+  border: none;
 }
 
 @media screen and (max-width: 800px) {

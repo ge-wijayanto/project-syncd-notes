@@ -7,24 +7,45 @@
 @section('content')
   <main class="dflex">
     <div class="container">
-      <h2>Edit Task</h2>
+      <h2>Create Task</h2>
       <form action="/project/view/{{ $id }}/create" method="post">
+        @csrf
         <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
         </div>
+        @error('name')
+          <div class="alert danger">
+            {{ $message }}
+          </div>
+        @enderror
         <div class="form-group">
           <label for="description">Description</label>
           <textarea name="description" id="description" cols="30" rows="10"></textarea>
         </div>
+        @error('description')
+          <div class="alert danger">
+            {{ $message }}
+          </div>
+        @enderror
         <div class="form-group">
-          <label for="start-date">Start Date</label>
-          <input type="date" name="start-date" id="start-date">
+          <label for="start_date">Start Date</label>
+          <input type="date" name="start_date" id="start_date">
         </div>
+        @error('start_date')
+          <div class="alert danger">
+            {{ $message }}
+          </div>
+        @enderror
         <div class="form-group">
-          <label for="end-date">End Date</label>
-          <input type="date" name="end-date" id="end-date">
+          <label for="end_date">End Date</label>
+          <input type="date" name="end_date" id="end_date">
         </div>
+        @error('end_date')
+          <div class="alert danger">
+            {{ $message }}
+          </div>
+        @enderror
         <div class="action dflex">
           <a href="/project/view/{{ $id }}">Back</a>
           <button type="submit" class="btn-create">Create</button>
