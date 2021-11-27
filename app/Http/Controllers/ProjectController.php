@@ -15,7 +15,9 @@ class ProjectController extends Controller
     {
         $projects = Project::find($id);
         $userid = Auth::id();
-        $checkparticipant = Participant::where('user_id', $userid)->where('project_id', $projects->id)->first();
+        $checkparticipant = Participant::where('user_id', $userid)
+                    ->where('project_id', $projects->id)
+                    ->first();
 
         $ongoings = Task::where('project_id', $id)
                     ->where('status', false)
@@ -54,5 +56,18 @@ class ProjectController extends Controller
         $projects->delete();
         
         return redirect('dashboard')->with('success', 'The project has been terminated!');
+    }
+
+    public function activity($id) {
+        $projects = Project::find($id);
+        $userid = Auth::id();
+        $checkparticipant = Participant::where('user_id', $userid)
+                    ->where('project_id', $projects->id)
+                    ->first();
+
+        return view('activity', [
+            'projects' => $projects, 
+            'checkparticipant' => $checkparticipant,
+        ]);
     }
 }

@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function() {
     Route::middleware(['project'])->group(function() {
         Route::get('/project/view/{id}', 'ProjectController@view');
         Route::delete('/project/delete/{id}', 'ProjectController@delete');
+        Route::get('/project/view/{id}/activity', 'ProjectController@activity');
 
         // Task
         Route::get('/project/view/{id}/create', 'TaskController@create')->middleware('manager');

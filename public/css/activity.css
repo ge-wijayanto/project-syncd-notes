@@ -1,0 +1,51 @@
+.navigation {
+  background-color: var(--first-color);
+  padding: 0.5rem 1.2rem;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.navigation span {
+  font-size: 1.3rem;
+  color: var(--sixth-color);
+  font-weight: bolder;
+}
+
+form {
+  display: inline;
+}
+
+.menu-action a,
+.menu-action button {
+  padding: 0.3rem 1.2rem;
+  background-color: var(--fourth-color);
+  display: inline-block;
+  color: var(--first-color);
+  text-decoration: none;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+}
+
+.menu-action button {
+  border: none;
+  font-size: 1rem;
+}
+
+.container {
+  width: 90%;
+  margin: 3rem auto 0 auto;
+  border: 2px solid var(--first-color);
+  border-radius: 10px;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  min-height: 75vh;
+}
+
+.container .message {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.container span {
+  font-weight: bolder;
+}

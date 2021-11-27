@@ -2,7 +2,7 @@
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/task.css') }}">
 @endsection
-@section('title', 'Dummy Task')
+@section('title', 'Detail Task')
 
 @section('content')
   <main class="dflex">
