@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
 use App\Models\Participant;
 use App\Models\Task;
+use App\Models\Discussion;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Models\Activity;
 
@@ -39,7 +40,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required'
+            'name' => 'required|max:30'
         ]);
         Project::create([
             'name' => $request->name,
@@ -53,6 +54,10 @@ class ProjectController extends Controller
     {
         $projects = Project::find($id);
         $participant = Participant::where('project_id', $projects->id);
+        $discussion = Discussion::where('project_id', $projects->id);
+        $task = Task::where('project_id', $projects->id);
+        $task->delete();
+        $discussion->delete();
         $participant->delete();
         $projects->delete();
         

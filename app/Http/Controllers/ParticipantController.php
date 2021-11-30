@@ -13,7 +13,7 @@ class ParticipantController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'code' => 'required'
+            'code' => 'required|max:13'
         ]);
 
         $code = $request->code;
@@ -27,7 +27,7 @@ class ParticipantController extends Controller
         $userid = Auth::id();
         if ($projects->user_id === $userid) {
             return redirect()->back()->withErrors([
-                'failed' => 'You cannot join the projects because your are the owner`s project!'
+                'failed' => 'You cannot join the project because you are the project`s owner!'
             ]);
         }
 
