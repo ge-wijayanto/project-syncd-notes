@@ -19,15 +19,11 @@
         </div>
       </div>
       <div class="container">
+        @foreach ($activitylog as $item)
         <div class="message">
-          <span>System (Jun 10, 2021) :</span> Task "Making Prototype" has been moved to  Finish by Anon251
+          <span>System ({{$item->created_at}}) : {{$item->description}}</span> 
         </div>
-        <div class="message">
-          <span>System (Jun 15, 2021) :</span> Task "Impelementation to Program" has been moved to  Finish by Anon123
-        </div>
-        <div class="message">
-          <span>System (Jun 15, 2021) :</span> Task "Impelementation to Program" has been moved to Ongoing by Anon123 
-        </div>
+        @endforeach
       </div>
     </main>
 @endsection

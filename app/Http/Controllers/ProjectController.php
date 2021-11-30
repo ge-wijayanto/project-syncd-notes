@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
 use App\Models\Participant;
 use App\Models\Task;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Models\Activity;
 
 class ProjectController extends Controller
 {
@@ -63,10 +65,11 @@ class ProjectController extends Controller
         $checkparticipant = Participant::where('user_id', $userid)
                     ->where('project_id', $projects->id)
                     ->first();
-
+        $activitylog = Activity::where('properties->project_id', $projects->id)->get();
         return view('activity', [
             'projects' => $projects, 
             'checkparticipant' => $checkparticipant,
+            'activitylog' => $activitylog
         ]);
     }
 }

@@ -22,12 +22,20 @@ class TaskController extends Controller
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
-
+        $user = Auth::user();
         $request->request->add([
             'project_id' => $id,
         ]);
 
-        Task::create($request->all());
+        $task = Task::create($request->all());
+        if($task){
+            activity()
+                ->on($task)
+                ->by($user)
+                ->withProperties([
+                    'project_id' => $id])
+                ->log('Task "' . $task->name . '" was created by ' . Auth::user()->name);
+        }
 
         return redirect('project/view/'. $id);
     }
@@ -62,32 +70,68 @@ class TaskController extends Controller
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
-
-        Task::find($idTask)->update($validate);
+        $user = Auth::user();
+        $task = Task::find($idTask);
+        $task->update($validate);
+        if($task){
+        activity()
+            ->on($task)
+            ->by($user)
+            ->withProperties([
+                 'project_id' => $id])
+            ->log('Task "' . $task->name . '" was edited by ' . Auth::user()->name);
+        }
 
         return redirect('project/view/'. $id. '/detail/'. $idTask)->with('success', 'Task has been updated!');
     }
 
     public function delete($id, $idTask) {
         $task = Task::find($idTask);
+        $user = Auth::user();
+
         $task->delete();
+        activity()
+            ->on($task)
+            ->by($user)
+            ->withProperties([
+                'project_id' => $id])
+            ->log('Task "' . $task->name . '" was deleted by ' . Auth::user()->name);
 
         return redirect('project/view/'. $id);
     }
 
     public function ongoing($id, $idTask) {
-        Task::find($idTask)->update([
+        $task = Task::find($idTask);
+        $user = Auth::user();
+        $task->update([
             'status' => false
         ]);
+        if($task){
+            activity()
+            ->on($task)
+            ->by($user)
+            ->withProperties([
+                'project_id' => $id])
+            ->log('Task "' . $task->name . '" was moved to Ongoing by ' . Auth::user()->name);
+        }
 
         return redirect('project/view/'. $id);
     }
 
     public function finish($id, $idTask) {
-        Task::find($idTask)->update([
+        $task = Task::find($idTask);
+        $user = Auth::user();
+        $task->update([
             'status' => true
         ]);
-
+        if($task){
+            activity()
+            ->on($task)
+            ->by($user)
+            ->withProperties([
+                'project_id' => $id])
+            ->log('Task "' . $task->name . '" was moved to Finished by ' . Auth::user()->name);
+        }
         return redirect('project/view/'. $id);
     }
 }
