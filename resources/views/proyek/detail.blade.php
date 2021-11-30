@@ -19,6 +19,7 @@
                     @if (Auth::id() === $projects->user->id )
                     <a href="/project/view/{{$projects->id}}/create">Create Task</a>
                     @endif
+                    <a href="/project/view/{{$projects->id}}/discussion">Discussion</a>
                     <a href="/project/view/{{$projects->id}}/activity">Activity Log</a>
                     @if (Auth::id() === $projects->user->id )
                         <form action="/project/delete/{{$projects->id}}" method="post">

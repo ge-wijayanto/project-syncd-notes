@@ -39,8 +39,9 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/project/view/{id}', 'ProjectController@view');
         Route::delete('/project/delete/{id}', 'ProjectController@delete');
         Route::get('/project/view/{id}/activity', 'ProjectController@activity');
+        Route::get('/project/view/{id}/discussion', 'DiscussionController@index');
+        Route::post('/project/view/{id}/discussion', 'DiscussionController@store');
 
-        // Task
         Route::get('/project/view/{id}/create', 'TaskController@create')->middleware('manager');
         Route::post('/project/view/{id}/create', 'TaskController@store')->middleware('manager');
         Route::delete('/project/view/{id}/leave', 'ParticipantController@delete');

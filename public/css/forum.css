@@ -33,12 +33,11 @@ form {
 
 .container {
   width: 90%;
-  margin: 3rem auto 0 auto;
+  margin: 3rem auto 100px auto;
   border: 2px solid var(--first-color);
   border-radius: 10px;
   background-color: white;
   padding: 1rem 1.5rem;
-  min-height: 75vh;
 }
 
 .container .message {
@@ -48,4 +47,35 @@ form {
 
 .container span {
   font-weight: bolder;
+}
+
+.send {
+  position: fixed;
+  background-color: var(--first-color);
+  width: 100%;
+  bottom: 0;
+  padding: 0.9rem 1.7rem;
+}
+
+.send form {
+  gap: 15px;
+}
+
+#message,
+.send button {
+  font-size: 0.9rem;
+  padding: 0.4rem 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
+#message {
+  flex: 1;
+  color: var(--eighth-color);
+}
+
+.send button {
+  color: var(--first-color);
+  background-color: var(--sixth-color);
 }

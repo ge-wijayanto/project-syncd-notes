@@ -1,6 +1,6 @@
 @extends('layouts.navbar')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/activity.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forum.css') }}">
 @endsection
 @section('title')
     {{$projects->name}}
