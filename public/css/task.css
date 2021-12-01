@@ -1,3 +1,10 @@
+body {
+  background-image: url('/img/background_3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 main {
   justify-content: center;
 }

@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ParticipantController extends Controller
 {
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $this->validate($request,[
             'code' => 'required|max:13'
         ]);
@@ -47,7 +46,7 @@ class ParticipantController extends Controller
         return redirect('/project/view/'.$projects->id);
     }
 
-    public function delete($id){
+    public function delete($id) {
         $project = Project::find($id)->id;
         $userid = Auth::id();
         $participant = Participant::where('user_id', $userid)->where('project_id', $project);

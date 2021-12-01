@@ -13,8 +13,7 @@ use Spatie\Activitylog\Models\Activity;
 
 class ProjectController extends Controller
 {
-    public function view($id)
-    {
+    public function view($id) {
         $projects = Project::find($id);
         $userid = Auth::id();
         $checkparticipant = Participant::where('user_id', $userid)
@@ -37,11 +36,11 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $this->validate($request,[
             'name' => 'required|max:30'
         ]);
+
         Project::create([
             'name' => $request->name,
             'code' => uniqid(),
@@ -50,8 +49,7 @@ class ProjectController extends Controller
         return redirect('dashboard')->with('success', 'The project has been created!');
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         $projects = Project::find($id);
         $participant = Participant::where('project_id', $projects->id);
         $discussion = Discussion::where('project_id', $projects->id);

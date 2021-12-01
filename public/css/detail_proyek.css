@@ -1,3 +1,10 @@
+body {
+  background-image: url('/img/background_1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .navigation {
   background-color: var(--first-color);
   padding: 0.5rem 1.2rem;

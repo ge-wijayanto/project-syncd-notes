@@ -28,12 +28,12 @@ class TaskController extends Controller
         ]);
 
         $task = Task::create($request->all());
-        if($task){
+
+        if($task) {
             activity()
                 ->on($task)
                 ->by($user)
-                ->withProperties([
-                    'project_id' => $id])
+                ->withProperties(['project_id' => $id])
                 ->log('Task "' . $task->name . '" was created by ' . Auth::user()->name);
         }
 
@@ -42,6 +42,10 @@ class TaskController extends Controller
 
     public function detail($id, $idTask) {
         $project = Project::find($id);
+        if (!$project) {
+            return redirect('dashboard');
+        }
+
         $owned = $project->user_id === Auth::id();
         $task = Task::find($idTask);
 
@@ -73,12 +77,12 @@ class TaskController extends Controller
         $user = Auth::user();
         $task = Task::find($idTask);
         $task->update($validate);
-        if($task){
+
+        if($task) {
         activity()
             ->on($task)
             ->by($user)
-            ->withProperties([
-                 'project_id' => $id])
+            ->withProperties(['project_id' => $id])
             ->log('Task "' . $task->name . '" was edited by ' . Auth::user()->name);
         }
 
@@ -90,11 +94,11 @@ class TaskController extends Controller
         $user = Auth::user();
 
         $task->delete();
+
         activity()
             ->on($task)
             ->by($user)
-            ->withProperties([
-                'project_id' => $id])
+            ->withProperties(['project_id' => $id])
             ->log('Task "' . $task->name . '" was deleted by ' . Auth::user()->name);
 
         return redirect('project/view/'. $id);
@@ -106,12 +110,12 @@ class TaskController extends Controller
         $task->update([
             'status' => false
         ]);
-        if($task){
+
+        if($task) {
             activity()
             ->on($task)
             ->by($user)
-            ->withProperties([
-                'project_id' => $id])
+            ->withProperties(['project_id' => $id])
             ->log('Task "' . $task->name . '" was moved to Ongoing by ' . Auth::user()->name);
         }
 
@@ -124,12 +128,12 @@ class TaskController extends Controller
         $task->update([
             'status' => true
         ]);
-        if($task){
+
+        if($task) {
             activity()
             ->on($task)
             ->by($user)
-            ->withProperties([
-                'project_id' => $id])
+            ->withProperties(['project_id' => $id])
             ->log('Task "' . $task->name . '" was moved to Finished by ' . Auth::user()->name);
         }
         return redirect('project/view/'. $id);
