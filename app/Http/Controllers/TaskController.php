@@ -71,7 +71,7 @@ class TaskController extends Controller
         $validate = $request->validate([
             'name' => 'required|max:20',
             'description' => 'required|max:200',
-            'start_date' => 'required|after_or_equal:'.date('m/d/Y'),
+            'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date'
         ]);
         $user = Auth::user();
