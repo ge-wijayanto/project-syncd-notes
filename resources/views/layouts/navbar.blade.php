@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="pusher-app-key" content="{{ env('PUSHER_APP_KEY') }}">
   <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
   <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet">
@@ -13,9 +12,8 @@
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script>
     // Pusher.logToConsole = true;
-    const key = document.querySelector('meta[name="pusher-app-key"]').content;
 
-    let pusher = new Pusher(key, {
+    let pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
       cluster: 'ap1',
       encrypted: true
     });

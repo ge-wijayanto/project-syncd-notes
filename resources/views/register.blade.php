@@ -19,7 +19,8 @@
         @enderror
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Input email here..." value="{{ old('email') }}">
+        <input type="email" id="email" name="email" placeholder="Input email here..." value="{{ old('email', Request::get('e'))}}">
+        
         @error('email')
         <div class="alert danger">
           <span>{{ $message }}</span>

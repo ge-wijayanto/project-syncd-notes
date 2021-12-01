@@ -28,7 +28,6 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         $remember = $request->remember;
-        $projects = Project::all();
         if (Auth::attempt($credentials, $remember)) {
             Auth::logoutOtherDevices($request->password);
             return redirect()->route('dashboard');
@@ -73,8 +72,6 @@ class CustomAuthController extends Controller
             return view('dashboard',[
                 'projects' => $projects,
             ]);
-
-
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

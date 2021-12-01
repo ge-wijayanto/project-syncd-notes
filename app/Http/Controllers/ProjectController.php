@@ -8,7 +8,6 @@ use App\Models\Project;
 use App\Models\Participant;
 use App\Models\Task;
 use App\Models\Discussion;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Models\Activity;
 
 class ProjectController extends Controller
